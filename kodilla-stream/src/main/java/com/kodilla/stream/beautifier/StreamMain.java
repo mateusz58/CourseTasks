@@ -12,5 +12,4 @@ public class StreamMain {
 
         String l3=poemBeautifier.beautify("Beutify",(s->s.replace("B","A")));
     }
-
 }
