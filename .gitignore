@@ -44,7 +44,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-## Gradle file
-
-!*.gradle
