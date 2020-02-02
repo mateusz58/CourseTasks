@@ -30,7 +30,7 @@ public final class TaskList {
     @Override
     public String toString() {
         return "TaskList{" +
-            "name='" + name + '\'' + ",\n" +
+            "companyName='" + name + '\'' + ",\n" +
             "tasks=\n" + tasks + "\n" +
             '}' + "\n";
     }

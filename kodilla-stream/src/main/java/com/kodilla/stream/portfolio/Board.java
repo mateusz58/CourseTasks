@@ -30,7 +30,7 @@ public final class Board {
     @Override
     public String toString() {
         return "Board{" + "\n" +
-            "name='" + name + '\'' + ",\n" +
+            "companyName='" + name + '\'' + ",\n" +
             "taskLists=" + taskLists + "\n" +
             '}';
     }
