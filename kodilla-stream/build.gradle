@@ -2,10 +2,11 @@ plugins {
     id 'java'
 }
 
-group 'com.kodilla'
+group 'com.kodilla.kodilla-stream'
 version '0.0.1-SNAPSHOT'
 
 sourceCompatibility = 1.8
+
 
 repositories {
     mavenCentral()
