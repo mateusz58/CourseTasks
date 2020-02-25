@@ -1,18 +1,33 @@
 package tasks.service;
 
+import java.util.Collection;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tasks.domain.TaskDto;
+import tasks.domain.Task;
 import tasks.repository.TaskRepository;
 
 @Service
 public class DbService {
 
-	@Autowired
 	private TaskRepository repository;
 
-	public Optional<TaskDto> getTask(final Long id) {
+	public DbService(TaskRepository repository) {
+		this.repository = repository;
+	}
+
+	public Optional<Task> getTask(final Long id) {
 		return repository.findById(id);
+	}
+
+	public Collection<Task> getTasks() {
+		return repository.findAll();
+	}
+
+	public void deleteTask(final Long id) {
+		repository.deleteById(id);
+	}
+
+	public void createTask(final Task task) {
+		repository.save(task);
 	}
 }
