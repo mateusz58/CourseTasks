@@ -1,8 +1,6 @@
 package com.kodilla.exception.test;
 
-import lombok.Getter;
 
-@Getter
 public class Flight {
     private final String departureAirport;
      private final String arrivalAirport;
@@ -13,5 +11,17 @@ public class Flight {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
         this.isActive=true;
+    }
+
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    public boolean isActive() {
+        return isActive;
     }
 }

@@ -22,23 +22,9 @@ public class FlightsService {
                 .collect(Collectors.toSet());
     }
 
-    public Set<List<Flight>> availableConnectingFlights(String departureAirport, String arrivalAirport) {
-        Set<List<Flight>> setOfFlights = new HashSet<>();
-
-        flightsDb.getAvailableFlights().stream()
-                .filter(flight -> flight.getDepartureAirport().equals(departureAirport))
-                .forEach(flight -> {
-                    List <Flight> temp = flightsDb.getAvailableFlights().stream()
-                            .filter(fl -> (flight.getArrivalAirport().equals(fl.getDepartureAirport()) && fl.getArrivalAirport().equals(arrivalAirport)))
-                            .collect(Collectors.toList());
-
-                    if (temp.size() > 0) {
-                        List<Flight> flightsRoute = new ArrayList<>();
-                        flightsRoute.add(flight);
-                        flightsRoute.addAll(temp);
-                        setOfFlights.add(flightsRoute);
-                    }
-                });
-        return setOfFlights;
+    public List<Flight> availableConnectingFlights(String departureAirport, String arrivalAirport) {
+        List<Flight> list = new ArrayList<>();
+        list = flightsDb.getAvailableFlights().stream().filter(s->s.getDepartureAirport().equals(departureAirport) && s.getArrivalAirport().equals(arrivalAirport)).collect(Collectors.toList());
+        return list;
     }
 }
