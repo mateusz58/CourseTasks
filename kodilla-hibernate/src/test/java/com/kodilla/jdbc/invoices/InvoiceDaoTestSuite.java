@@ -1,13 +1,13 @@
-package com.kodilla.hibernate.invoices;
+package com.kodilla.jdbc.invoices;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.kodilla.hibernate.dao.InvoiceDao;
-import com.kodilla.hibernate.generators.NumberGenerator;
-import com.kodilla.hibernate.generators.WordGenerator;
-import com.kodilla.hibernate.invoice.Invoice;
-import com.kodilla.hibernate.invoice.Item;
-import com.kodilla.hibernate.invoice.Product;
+import com.kodilla.jdbc.generators.NumberGenerator;
+import com.kodilla.jdbc.generators.WordGenerator;
+import com.kodilla.hibernate.model.Invoice;
+import com.kodilla.hibernate.model.Item;
+import com.kodilla.hibernate.model.Product;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,17 +50,16 @@ class InvoiceDaoTestSuite {
     void setUp() {
         items = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            items.add(Item.Builder.anItem()
-                .withPrice(BigDecimal.valueOf(NumberGenerator.generateRandomNumber(2)))
-                .withQuantity(10)
-                .withValue(BigDecimal.valueOf(10))
-                .withProduct(Product.Builder.aProduct().withName(WordGenerator.generateRandomWord()).build())
+            items.add(Item.builder().id(++i)
+                .price(BigDecimal.valueOf(NumberGenerator.generateRandomNumber(2)))
+                .quantity(10)
+                .value(BigDecimal.valueOf(10))
+                .product(Product.builder().name(WordGenerator.generateRandomWord()).build())
                 .build());
-
         }
-        invoice = Invoice.Builder.anInvoice()
-            .withItems(items)
-            .withNumber(WordGenerator.generateRandomWord())
+        invoice = Invoice.builder()
+            .items(items)
+            .number(WordGenerator.generateRandomWord())
             .build();
     }
 }

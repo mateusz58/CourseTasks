@@ -1,11 +1,11 @@
-package com.kodilla.hibernate;
+package com.kodilla.jdbc;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.kodilla.hibernate.company.Company;
 import com.kodilla.hibernate.company.Employee;
 import com.kodilla.hibernate.dao.CompanyDao;
-import com.kodilla.hibernate.generators.WordGenerator;
+import com.kodilla.jdbc.generators.WordGenerator;
 import java.util.Collections;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
@@ -32,20 +32,20 @@ public class CompanyDaoTestSuite {
 
     @BeforeEach
     void setUp() {
-        employee = Employee.Builder.anEmployee()
+        employee = Employee.builder()
                 .firstName(WordGenerator.generateRandomWord())
                 .lastName(WordGenerator.generateRandomWord())
                 .build();
-        employee2 = Employee.Builder.anEmployee()
+        employee2 = Employee.builder()
                 .firstName(WordGenerator.generateRandomWord())
                 .lastName(WordGenerator.generateRandomWord())
                 .build();
-        companyToSave = Company.Builder.aCompany()
-                .name(WordGenerator.generateRandomWord())
+        companyToSave = Company.builder()
+                .companyName(WordGenerator.generateRandomWord())
                 .employees(Collections.singletonList(employee))
                 .build();
-        company2 = Company.Builder.aCompany()
-                .name(WordGenerator.generateRandomWord())
+        company2 = Company.builder()
+                .companyName(WordGenerator.generateRandomWord())
                 .employees(Collections.singletonList(employee2))
                 .build();
         companyDao.save(company2);

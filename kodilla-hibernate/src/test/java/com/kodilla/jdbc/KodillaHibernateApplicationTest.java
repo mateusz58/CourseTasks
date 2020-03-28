@@ -1,4 +1,4 @@
-package com.kodilla.hibernate;
+package com.kodilla.jdbc;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
