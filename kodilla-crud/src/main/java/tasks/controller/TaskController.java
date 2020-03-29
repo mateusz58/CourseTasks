@@ -5,23 +5,15 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tasks.client.TrelloClient;
 import tasks.domain.Task;
 import tasks.service.DbService;
 
 @RestController
 @RequestMapping("api/v1/tasks")
+@CrossOrigin(origins = "*")
 public class TaskController {
-
 
 	DbService service;
 	TrelloClient trelloClient;
@@ -59,7 +51,7 @@ public class TaskController {
 			@ApiResponse(code = 200, message = "OK", response = Task[].class),
 			@ApiResponse(code = 500, message = "Internal server error")
 	})
-	@PutMapping
+	@PutMapping("/{id}")
 	public Task updateTask(@RequestBody Task task) {
 		return new Task();
 	}

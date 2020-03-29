@@ -2,10 +2,11 @@ package tasks.repository;
 
 import java.util.List;
 import java.util.Optional;
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import tasks.domain.Task;
 
-public interface TaskRepository extends CrudRepository<Task, Long> {
+public interface TaskRepository extends JpaRepository<Task, Long> {
 
 	@Override
 	List<Task> findAll();
