@@ -1,4 +1,4 @@
-package com.kodilla.generators;
+package com.kodilla.patterns2.generators;
 
 import org.jeasy.random.EasyRandom;
 import org.jeasy.random.EasyRandomParameters;
@@ -12,8 +12,10 @@ import static java.nio.charset.Charset.forName;
 public class EasyRandomConfigure {
 
     private static EasyRandom  configuration() {
+
         return new EasyRandom( new EasyRandomParameters()
                 .seed(123L)
+                .stringLengthRange(3, 5)
                 .excludeField(FieldPredicates.named("id"))
                 .objectPoolSize(100)
                 .randomizationDepth(3)
