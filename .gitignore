@@ -23,7 +23,6 @@ target/
 *.ipr
 
 ## com.kodilla.patterns2.Application properties ##
-application.properties
 
 # Jar files ##
 *.jar
@@ -42,8 +41,16 @@ mvnw
 /.nb-gradle/
 build/
 
+## Iml files
+*.iml
+
 ### VS Code ###
 .vscode/
 
 ## Build files ###
 out/
+
+##
+gradle
+wrapper
+
