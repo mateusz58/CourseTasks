@@ -1,10 +1,24 @@
-plugins {
-    id 'java'
+buildscript {
+    ext {
+        springBootVersion = '2.2.6.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
-group 'com.kodilla'
-version '1.0-SNAPSHOT'
+task wrapper(type: Wrapper) {
+    gradleVersion = '6.2.2'
+}
 
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
@@ -12,10 +26,18 @@ repositories {
 }
 
 dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    implementation('org.springframework.boot:spring-boot-starter')
+    implementation('org.springframework.boot:spring-boot-starter-aop')
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.1.1'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.1.1'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.1.1'
     testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.1.1'
     testCompile('org.mockito:mockito-all:1.10.19')
+    compile group: 'org.jeasy', name: 'easy-random-core', version: '4.2.0'
     compile 'org.projectlombok:lombok:1.18.2'
+    implementation group: 'org.jeasy', name: 'easy-random', version: '4.2.0', ext: 'pom'
+    compileOnly('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
 }

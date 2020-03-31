@@ -1,18 +1,19 @@
 package com.kodilla.stream.forumuser;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDate;
 
-@Getter
+
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class ForumUser {
-    private final int id;
-    private final String username;
-    private final String realname;
-    private final LocalDate birthDate;
-    private final char gender;
+    private  int id;
+    private  String username;
+    private  String realname;
+    private  LocalDate birthDate;
+    private  char gender;
     private int numberOfPosts;
 }
-

@@ -16,6 +16,11 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 //apply plugin: 'war'
 
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '6.2.2'
+}
+
 group = 'com.kodilla.crud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8

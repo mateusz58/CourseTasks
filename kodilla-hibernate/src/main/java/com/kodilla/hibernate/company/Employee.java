@@ -1,11 +1,9 @@
 package com.kodilla.hibernate.company;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -28,11 +26,15 @@ public final class Employee {
 
     private String lastName;
 
-    @ManyToMany(mappedBy = "employees")
-    private List<Company> companies;
+    @ManyToMany(mappedBy = "employees" ,fetch = FetchType.EAGER)
+    private Collection<Company> companies;
 
-    public Employee(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

@@ -1,9 +1,6 @@
 package com.kodilla.hibernate.company;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -32,6 +29,8 @@ public final class Company {
     @GeneratedValue
     @Column(name = "id")
     private Long id;
+
+    @Column(name = "company_name")
     private String companyName;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "employee_company",
@@ -39,7 +38,11 @@ public final class Company {
             inverseJoinColumns = {@JoinColumn(name = "employee_id")})
     private Collection<Employee> employees;
 
-    public Company(String companyName) {
-        this.companyName = companyName;
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                '}';
     }
 }

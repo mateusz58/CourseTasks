@@ -22,6 +22,7 @@ public final class Invoice {
     private int id;
     private String number;
 
+    @Builder.Default
     @OneToMany(mappedBy = "invoice", targetEntity = Item.class)
     private List<Item> items = new ArrayList<>();
 }

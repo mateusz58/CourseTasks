@@ -1,25 +1,21 @@
-package com.kodilla.jdbc;
+package com.kodilla.hibernate.company;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.kodilla.hibernate.company.Company;
-import com.kodilla.hibernate.company.Employee;
 import com.kodilla.hibernate.dao.CompanyDao;
-import com.kodilla.jdbc.generators.WordGenerator;
+import com.kodilla.generators.WordGenerator;
 import java.util.Collections;
 import javax.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Transactional
-public class CompanyDaoTestSuite {
+public class CompanyTest {
 
     @Autowired
     CompanyDao companyDao;

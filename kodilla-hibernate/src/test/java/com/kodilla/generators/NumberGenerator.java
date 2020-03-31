@@ -1,4 +1,4 @@
-package com.kodilla.jdbc.generators;
+package com.kodilla.generators;
 
 import java.util.Random;
 

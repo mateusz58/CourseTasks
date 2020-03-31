@@ -22,7 +22,7 @@ target/
 *.iml
 *.ipr
 
-## Application properties ##
+## com.kodilla.patterns2.Application properties ##
 application.properties
 
 # Jar files ##

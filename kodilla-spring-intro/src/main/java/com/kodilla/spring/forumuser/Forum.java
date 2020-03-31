@@ -1,13 +1,16 @@
 package com.kodilla.spring.forumuser;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Forum {
 
-    private final Collection<ForumUser>forumUsers;
+    @Builder.Default
+    private final Collection<ForumUser>forumUsers = new ArrayList<>();
 }

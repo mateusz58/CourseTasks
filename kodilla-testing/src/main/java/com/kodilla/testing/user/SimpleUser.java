@@ -1,13 +1,11 @@
 package com.kodilla.testing.user;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
-@AllArgsConstructor(access = AccessLevel.PUBLIC)
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class SimpleUser {
 
    private String username;

@@ -1,30 +1,29 @@
-package com.kodilla.jdbc.invoices;
+package com.kodilla.hibernate.model;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.kodilla.hibernate.dao.InvoiceDao;
-import com.kodilla.jdbc.generators.NumberGenerator;
-import com.kodilla.jdbc.generators.WordGenerator;
-import com.kodilla.hibernate.model.Invoice;
-import com.kodilla.hibernate.model.Item;
-import com.kodilla.hibernate.model.Product;
+import com.kodilla.generators.NumberGenerator;
+import com.kodilla.generators.WordGenerator;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest
-class InvoiceDaoTestSuite {
+@ExtendWith(SpringExtension.class)
+class InvoiceTest {
 
     @Autowired
-	InvoiceDao invoiceDao;
+    InvoiceDao invoiceDao;
 
     Invoice invoice;
     List<Item> items;
@@ -51,15 +50,15 @@ class InvoiceDaoTestSuite {
         items = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             items.add(Item.builder().id(++i)
-                .price(BigDecimal.valueOf(NumberGenerator.generateRandomNumber(2)))
-                .quantity(10)
-                .value(BigDecimal.valueOf(10))
-                .product(Product.builder().name(WordGenerator.generateRandomWord()).build())
-                .build());
+                    .price(BigDecimal.valueOf(NumberGenerator.generateRandomNumber(2)))
+                    .quantity(10)
+                    .value(BigDecimal.valueOf(10))
+                    .product(Product.builder().name(WordGenerator.generateRandomWord()).build())
+                    .build());
         }
         invoice = Invoice.builder()
-            .items(items)
-            .number(WordGenerator.generateRandomWord())
-            .build();
+                .items(items)
+                .number(WordGenerator.generateRandomWord())
+                .build();
     }
 }
