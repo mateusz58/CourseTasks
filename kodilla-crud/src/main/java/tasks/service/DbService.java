@@ -1,33 +1,19 @@
 package tasks.service;
 
-import java.util.Collection;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
-import tasks.domain.Task;
-import tasks.repository.TaskRepository;
+import tasks.domain.entity.Task;
+import tasks.domain.dto.TaskDto;
+import tasks.domain.mapper.TaskMapper;
+import tasks.dao.TaskDao;
 
 @Service
-public class DbService {
+public class DbService extends GenericServiceImpl<TaskDto, Task>  {
 
-	private TaskRepository repository;
+	private TaskDao repository;
 
-	public DbService(TaskRepository repository) {
-		this.repository = repository;
-	}
+	private TaskMapper mapper;
 
-	public Optional<Task> getTask(final Long id) {
-		return repository.findById(id);
-	}
-
-	public Collection<Task> getTasks() {
-		return repository.findAll();
-	}
-
-	public void deleteTask(final Long id) {
-		repository.deleteById(id);
-	}
-
-	public void createTask(final Task task) {
-		repository.save(task);
+	public DbService(TaskDao repository, TaskMapper mapper) {
+		super(repository, mapper);
 	}
 }

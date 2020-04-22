@@ -1,0 +1,60 @@
+#### Gradle files
+!*.gradle
+/grale
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+*.idea
+*.iws
+*.iml
+*.ipr
+
+## com.kodilla.patterns2.Application properties ##
+application.properties
+
+# Jar files ##
+*.jar
+
+# cmd files ##
+*.cmd
+""
+# mvnw file
+mvnw
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+## out ###
+out/*
+
+## idea ###
+*.imk
+.idea/
+auto-generate
+
+## docker related
+mysql8.0
+services/*
+my.cnf/*

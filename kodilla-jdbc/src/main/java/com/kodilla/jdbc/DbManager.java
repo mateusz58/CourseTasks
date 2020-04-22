@@ -26,7 +26,6 @@ public class DbManager {
         return dbManagerInstance;
     }
 
-
     public Connection getConnection() {
         return conn;
     }

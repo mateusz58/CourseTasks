@@ -2,7 +2,7 @@ import org.gradle.api.tasks.wrapper.Wrapper
 
 buildscript {
     ext {
-        springBootVersion = '2.0.1.RELEASE'
+        springBootVersion = '2.2.6.RELEASE'
     }
     repositories {
         mavenCentral()
